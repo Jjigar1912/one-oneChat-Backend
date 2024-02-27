@@ -1,0 +1,13 @@
+-- migrate:up
+
+CREATE TABLE IF NOT EXISTS users
+(
+    ID SERIAL NOT NULL PRIMARY KEY , 
+    email TEXT NOT NULL UNIQUE,
+    username VARCHAR(20) NOT NULL UNIQUE  ,
+    password TEXT NOT NULL , 
+    createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP 
+);
+
+-- migrate:down
+DROP TABLE IF EXISTS users;
